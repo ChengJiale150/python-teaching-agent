@@ -21,6 +21,7 @@ RUN uv sync
 
 # 配置bashrc，使其在每次启动终端时自动激活虚拟环境
 RUN echo 'source /app/.venv/bin/activate' >> /root/.bashrc
+RUN ln -sf /bin/bash /bin/sh
 
 # 暴露8888端口
 EXPOSE 8888
