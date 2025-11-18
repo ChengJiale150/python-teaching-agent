@@ -1,6 +1,5 @@
 FROM node:20-slim
 
-# 安装必要的系统依赖
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     ca-certificates \
@@ -21,6 +20,9 @@ RUN uv sync
 
 # 配置bashrc，使其在每次启动终端时自动激活虚拟环境
 RUN echo 'source /app/.venv/bin/activate' >> /root/.bashrc
+# 设置清华pypi镜像
+RUN echo 'pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple' >> /root/.bashrc
+# 设置默认Shell为bash
 RUN ln -sf /bin/bash /bin/sh
 
 # 暴露8888端口
