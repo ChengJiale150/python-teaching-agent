@@ -1,0 +1,7 @@
+# API keys
+.env
+
+# Jupyter Cache
+.ipynb_checkpoints/
+.virtual_documents/
+.jupyter_ystore.db
